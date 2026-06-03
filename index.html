@@ -9,6 +9,7 @@
 <meta property="og:title" content="875 Meade Ave — Bayview Heights Penthouse" />
 <meta property="og:description" content="Newly remodeled 3BR/2BA top-floor home with panoramic San Francisco views. Offered at $875,000." />
 <meta property="og:image" content="photos/panoramic.jpg" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23002349'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" />
 <title>875 Meade Ave — Bayview Heights, San Francisco</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -76,9 +77,8 @@
   h1.title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(48px,5.8vw,84px);line-height:1.02;letter-spacing:-0.02em;margin:24px 0 0;color:var(--ink)}
   .addr{margin-top:24px;color:var(--ink-dim);font-size:15.5px;max-width:48ch;line-height:1.75;font-weight:400}
   .addr strong{color:var(--ink);font-weight:600}
-  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);margin-top:44px}
-  .stat{padding:22px 0 4px;border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:flex-start;gap:0}
-  .stat:last-child{border-right:none}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px}
+  .stat{padding:22px 0 4px;display:flex;flex-direction:column;align-items:flex-start;gap:0}
   .stat .ic{color:var(--accent);margin-bottom:10px;opacity:.85}
   .stat .v{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1}
   .stat .l{display:block;color:var(--ink-mute);font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;margin-top:8px;font-weight:600}
@@ -97,7 +97,7 @@
   .photo-meta .idx{font-family:'Libre Franklin',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;padding:7px 14px;border:1px solid rgba(255,255,255,0.45);font-weight:600;background:rgba(0,0,0,0.28);backdrop-filter:blur(6px)}
   .photo-thumbs{display:flex;gap:10px;margin-top:14px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
   .photo-thumbs::-webkit-scrollbar{display:none}
-  .thumb{flex:0 0 104px;height:70px;overflow:hidden;cursor:pointer;border:1px solid var(--line);opacity:.55;transition:.25s var(--ease);background:#000;padding:0}
+  .thumb{flex:1 1 0;min-width:0;height:70px;overflow:hidden;cursor:pointer;border:1px solid var(--line);opacity:.55;transition:.25s var(--ease);background:#000;padding:0}
   .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
   .thumb.is-active{opacity:1;border-color:var(--accent)}
   .thumb:hover{opacity:.95}
@@ -107,19 +107,23 @@
     .hero-grid{grid-template-columns:1fr}
     .hero-photo{min-height:480px;order:-1}
     .stat-row{grid-template-columns:repeat(2,1fr)}
-    .stat:nth-child(2){border-right:none}
-    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
   }
 
   /* ===== SECTIONS ===== */
   section{padding:140px 0;position:relative}
-  .sec-head{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:end;margin-bottom:72px}
+  .sec-head{margin-bottom:64px}
   .sec-num{color:var(--accent);font-family:'Libre Franklin',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px;font-weight:600;padding:8px 14px;border:1px solid var(--line-2);border-radius:999px;background:var(--bg-1)}
   .sec-num svg{flex:0 0 auto}
-  .sec-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(40px,4.6vw,68px);line-height:1.04;letter-spacing:-0.02em;margin:20px 0 0;color:var(--ink)}
+  .sec-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(34px,4vw,54px);line-height:1.04;letter-spacing:-0.02em;margin:20px 0 0;color:var(--ink)}
   .sec-title em{font-style:italic;font-weight:700;color:var(--accent)}
-  .sec-lede{color:var(--ink-dim);font-size:17px;line-height:1.7;max-width:58ch;font-weight:400}
-  @media(max-width:880px){.sec-head{grid-template-columns:1fr;gap:24px}}
+  .sec-lede{color:var(--ink-dim);font-size:18px;line-height:1.7;max-width:72ch;font-weight:400;margin:24px 0 0}
+  /* Gallery lede matches the width of the first two photo columns below it */
+  #gallery .sec-lede{max-width:calc((200% - 14px) / 3)}
+  /* Features lede sizes to its own lines (sentence per line) */
+  #features .sec-lede{width:max-content;max-width:100%}
+  @media(max-width:880px){#gallery .sec-lede{max-width:100%}}
+  @media(min-width:1000px){.sec-title{white-space:nowrap}}
+  @media(max-width:999px){.sec-title{white-space:normal}}
 
   /* ===== OVERVIEW ===== */
   .ov-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:start}
@@ -133,26 +137,18 @@
   @media(max-width:880px){.ov-grid{grid-template-columns:1fr;gap:36px}.spec-list .row{grid-template-columns:38px 130px 1fr}}
 
   /* ===== GALLERY ===== */
-  .gal{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:150px;gap:12px}
-  .gal figure{margin:0;position:relative;overflow:hidden;background:var(--bg-2);border:1px solid var(--line)}
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .gal figure{margin:0;position:relative;overflow:hidden;background:var(--bg-2);border:1px solid var(--line);aspect-ratio:4 / 3}
   .gal figure img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
   .gal figure:hover img{transform:scale(1.06)}
   .gal figcaption{position:absolute;left:14px;bottom:12px;font-family:'Libre Franklin',sans-serif;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;background:rgba(0,35,73,0.78);backdrop-filter:blur(8px);padding:6px 11px;font-weight:600;opacity:0;transform:translateY(6px);transition:.35s var(--ease)}
   .gal figure:hover figcaption{opacity:1;transform:translateY(0)}
-  .g-a{grid-column:span 7;grid-row:span 3}
-  .g-b{grid-column:span 5;grid-row:span 2}
-  .g-c{grid-column:span 5;grid-row:span 2}
-  .g-d{grid-column:span 4;grid-row:span 2}
-  .g-e{grid-column:span 4;grid-row:span 2}
-  .g-f{grid-column:span 4;grid-row:span 2}
-  .g-g{grid-column:span 7;grid-row:span 2}
-  .g-h{grid-column:span 5;grid-row:span 2}
-  .g-i{grid-column:span 6;grid-row:span 2}
-  .g-j{grid-column:span 6;grid-row:span 2}
   @media(max-width:880px){
-    .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
-    .gal figure{grid-column:span 2;grid-row:span 2}
+    .gal{grid-template-columns:repeat(2,1fr)}
     .gal figcaption{opacity:1;transform:none}
+  }
+  @media(max-width:520px){
+    .gal{grid-template-columns:1fr}
   }
 
   /* ===== FEATURES ===== */
@@ -309,29 +305,25 @@
         <div class="stat-row">
           <div class="stat">
             <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="10" width="18" height="9" rx="1"/><path d="M5 10V7a2 2 0 0 1 2-2h2v5M15 10V5h2a2 2 0 0 1 2 2v3M3 19h18"/></svg></span>
-            <div class="v">3</div><span class="l">Bedrooms</span>
+            <div class="v">3</div><span class="l">Bed</span>
           </div>
           <div class="stat">
             <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18v4a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 12V6a2 2 0 0 1 4 0M3 18l-1 3M21 18l1 3"/></svg></span>
-            <div class="v">2</div><span class="l">Bathrooms</span>
+            <div class="v">2</div><span class="l">Bath</span>
           </div>
           <div class="stat">
             <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M9 3v18"/></svg></span>
-            <div class="v">1,300</div><span class="l">Square feet</span>
+            <div class="v">1,300</div><span class="l">Sqft</span>
           </div>
           <div class="stat">
             <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-            <div class="v">1994</div><span class="l">Year built</span>
+            <div class="v">1994</div><span class="l">Built</span>
           </div>
         </div>
         <div class="price-block">
           <div class="price">
             <span class="label">Offered at</span>
             <span class="v">$875,000</span>
-          </div>
-          <div class="row-actions" style="margin-top:0">
-            <a class="solid" href="#schedule">Schedule a tour</a>
-            <a href="#gallery">View photos</a>
           </div>
         </div>
       </div>
@@ -341,22 +333,20 @@
       <div class="hero-photo" id="heroPhoto">
         <img class="is-active" src="photos/living-room.jpg" alt="Open living and dining room" data-cap="Open living and dining" />
         <img src="photos/panoramic.jpg" alt="Panoramic San Francisco view" data-cap="Panoramic San Francisco view" />
-        <img src="photos/night-2.jpg" alt="Skyline at night" data-cap="The view at dusk" />
         <img src="photos/kitchen.jpg" alt="Kitchen with stainless appliances" data-cap="Skylit galley kitchen" />
         <img src="photos/master-bedroom.jpg" alt="Master bedroom" data-cap="Primary suite" />
         <img src="photos/backyard.jpg" alt="Backyard and deck" data-cap="Private deck and yard" />
         <div class="photo-meta">
           <div class="cap" id="heroCap">Open living and dining</div>
-          <div class="idx" id="heroIdx">01 / 06</div>
+          <div class="idx" id="heroIdx">01 / 05</div>
         </div>
       </div>
       <div class="photo-thumbs" id="heroThumbs">
         <button class="thumb is-active" data-i="0"><img src="photos/living-room.jpg" alt=""/></button>
         <button class="thumb" data-i="1"><img src="photos/panoramic.jpg" alt=""/></button>
-        <button class="thumb" data-i="2"><img src="photos/night-2.jpg" alt=""/></button>
-        <button class="thumb" data-i="3"><img src="photos/kitchen.jpg" alt=""/></button>
-        <button class="thumb" data-i="4"><img src="photos/master-bedroom.jpg" alt=""/></button>
-        <button class="thumb" data-i="5"><img src="photos/backyard.jpg" alt=""/></button>
+        <button class="thumb" data-i="2"><img src="photos/kitchen.jpg" alt=""/></button>
+        <button class="thumb" data-i="3"><img src="photos/master-bedroom.jpg" alt=""/></button>
+        <button class="thumb" data-i="4"><img src="photos/backyard.jpg" alt=""/></button>
       </div>
     </div>
   </div>
@@ -367,12 +357,12 @@
   <div class="marquee-track">
     <span>Top floor</span><span class="dot"></span>
     <span>Panoramic skyline</span><span class="dot"></span>
-    <span>Five skylights</span><span class="dot"></span>
+    <span>5 skylights</span><span class="dot"></span>
     <span>Private deck &amp; yard</span><span class="dot"></span>
     <span>One block to Muni T-Third</span><span class="dot"></span>
     <span>Top floor</span><span class="dot"></span>
     <span>Panoramic skyline</span><span class="dot"></span>
-    <span>Five skylights</span><span class="dot"></span>
+    <span>5 skylights</span><span class="dot"></span>
     <span>Private deck &amp; yard</span><span class="dot"></span>
     <span>One block to Muni T-Third</span><span class="dot"></span>
   </div>
@@ -385,11 +375,10 @@
       <div class="reveal">
         <div class="sec-num">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18M5 20V8l7-5 7 5v12M9 20v-6h6v6"/></svg>
-          01 — The residence
+          The residence
         </div>
         <h2 class="sec-title">A bright, quiet top floor penthouse.</h2>
       </div>
-      <p class="sec-lede reveal">Newly remodeled and sunny, with a spacious open plan, oversized windows on three sides, and five skylights that pour daylight into the kitchen, hall, and bathrooms. The home lives larger than its 1,300 square feet — and the view does the rest.</p>
     </div>
 
     <div class="ov-grid">
@@ -398,8 +387,7 @@
         <p>Open the front door and the city opens with it — downtown towers anchor the horizon, Bernal Heights rolls off to the west, and the Bay Bridge blinks awake at dusk. The living and dining rooms share one continuous wall of glass; the galley kitchen sits behind, finished with granite counters, stainless appliances, and a gas range under a pyramid skylight.</p>
         <p>Down a sun-flooded hallway, three bedrooms tuck away from the street — including a spacious primary with a bay window. Out back, a private deck steps down to a lush, fully fenced yard built for long Sunday barbecues. One block to the Muni T-line, quick access to 101 and 280, and street parking that actually exists.</p>
         <div class="row-actions">
-          <a class="solid" href="#schedule">Request full disclosures</a>
-          <a href="#gallery">See all photos</a>
+          <a class="solid" href="#gallery">See all photos</a>
         </div>
       </div>
 
@@ -414,7 +402,7 @@
         <div class="row"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M9 9v12"/></svg></span><div class="k">Storage</div><div class="v">Oversized storage unit in garage</div></div>
         <div class="row"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="3" width="16" height="18" rx="1"/><circle cx="12" cy="14" r="4"/><circle cx="9" cy="7" r="0.6" fill="currentColor"/></svg></span><div class="k">Laundry</div><div class="v">In-unit washer and dryer</div></div>
         <div class="row"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 14s-2-2-2-5a4 4 0 0 1 8 0c0 3-2 5-2 5M12 14v6M16 14s-2-2-2-5"/></svg></span><div class="k">Heat</div><div class="v">Forced air</div></div>
-        <div class="row"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4zM4 9h16M4 14h16M4 19h16"/></svg></span><div class="k">Flooring</div><div class="v">Pergo and carpet</div></div>
+        <div class="row"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4zM4 9h16M4 14h16M4 19h16"/></svg></span><div class="k">Flooring</div><div class="v">Pergo, carpet, and tile</div></div>
         <div class="row"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></span><div class="k">Pets</div><div class="v">Cats and small dogs welcome</div></div>
       </div>
     </div>
@@ -428,7 +416,7 @@
       <div class="reveal">
         <div class="sec-num">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="m3 17 5-4 4 3 4-5 5 6"/></svg>
-          02 — Gallery
+          Gallery
         </div>
         <h2 class="sec-title">Step inside.</h2>
       </div>
@@ -436,22 +424,18 @@
     </div>
 
     <div class="gal reveal">
-      <figure class="g-a"><img src="photos/panoramic.jpg" alt="Panoramic San Francisco view" loading="lazy"/><figcaption>The view — day</figcaption></figure>
-      <figure class="g-b"><img src="photos/living-room.jpg" alt="Living room" loading="lazy"/><figcaption>Living room</figcaption></figure>
-      <figure class="g-c"><img src="photos/living-room-2.jpg" alt="Dining room with view" loading="lazy"/><figcaption>Dining</figcaption></figure>
-      <figure class="g-d"><img src="photos/kitchen.jpg" alt="Kitchen" loading="lazy"/><figcaption>Kitchen</figcaption></figure>
-      <figure class="g-e"><img src="photos/kitchen-2.jpg" alt="Kitchen alternate angle" loading="lazy"/><figcaption>Kitchen — skylight</figcaption></figure>
-      <figure class="g-f"><img src="photos/hallway.jpg" alt="Hallway" loading="lazy"/><figcaption>Hallway</figcaption></figure>
-      <figure class="g-g"><img src="photos/master-bedroom.jpg" alt="Master bedroom" loading="lazy"/><figcaption>Primary suite</figcaption></figure>
-      <figure class="g-h"><img src="photos/master-bath.jpg" alt="Master bath" loading="lazy"/><figcaption>Primary bath</figcaption></figure>
-      <figure class="g-d"><img src="photos/guest-room.jpg" alt="Guest bedroom" loading="lazy"/><figcaption>Bedroom two</figcaption></figure>
-      <figure class="g-e"><img src="photos/office.jpg" alt="Office or third bedroom" loading="lazy"/><figcaption>Bedroom three · Office</figcaption></figure>
-      <figure class="g-f"><img src="photos/guest-bath.jpg" alt="Guest bath" loading="lazy"/><figcaption>Guest bath</figcaption></figure>
-      <figure class="g-i"><img src="photos/backyard.jpg" alt="Backyard" loading="lazy"/><figcaption>Deck and yard</figcaption></figure>
-      <figure class="g-j"><img src="photos/night-1.jpg" alt="Night view" loading="lazy"/><figcaption>The view — night</figcaption></figure>
-      <figure class="g-d"><img src="photos/night-2.jpg" alt="Night skyline" loading="lazy"/><figcaption>Skyline · Bay Bridge</figcaption></figure>
-      <figure class="g-e"><img src="photos/garage.jpg" alt="Garage" loading="lazy"/><figcaption>Garage and storage</figcaption></figure>
-      <figure class="g-f"><img src="photos/laundry.jpg" alt="Laundry" loading="lazy"/><figcaption>In-unit laundry</figcaption></figure>
+      <figure><img src="photos/panoramic.jpg" alt="Panoramic San Francisco view" loading="lazy"/><figcaption>The view — day</figcaption></figure>
+      <figure><img src="photos/living-room.jpg" alt="Living room" loading="lazy"/><figcaption>Living room</figcaption></figure>
+      <figure><img src="photos/living-room-2.jpg" alt="Dining room with view" loading="lazy"/><figcaption>Dining</figcaption></figure>
+      <figure><img src="photos/kitchen.jpg" alt="Kitchen" loading="lazy"/><figcaption>Kitchen</figcaption></figure>
+      <figure><img src="photos/kitchen-2.jpg" alt="Kitchen alternate angle" loading="lazy"/><figcaption>Kitchen — skylight</figcaption></figure>
+      <figure><img src="photos/master-bedroom.jpg" alt="Master bedroom" loading="lazy"/><figcaption>Primary suite</figcaption></figure>
+      <figure><img src="photos/master-bath.jpg" alt="Master bath" loading="lazy"/><figcaption>Primary bath</figcaption></figure>
+      <figure><img src="photos/guest-room.jpg" alt="Guest bedroom" loading="lazy"/><figcaption>Bedroom two</figcaption></figure>
+      <figure><img src="photos/office.jpg" alt="Office or third bedroom" loading="lazy"/><figcaption>Bedroom three · Office</figcaption></figure>
+      <figure><img src="photos/guest-bath.jpg" alt="Guest bath" loading="lazy"/><figcaption>Guest bath</figcaption></figure>
+      <figure><img src="photos/backyard.jpg" alt="Backyard" loading="lazy"/><figcaption>Deck and yard</figcaption></figure>
+      <figure><img src="photos/night-1.jpg" alt="Night view" loading="lazy"/><figcaption>The view — night</figcaption></figure>
     </div>
   </div>
 </section>
@@ -463,11 +447,11 @@
       <div class="reveal">
         <div class="sec-num">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 14 9l7 1-5 5 1.5 7L12 18l-5.5 4L8 15 3 10l7-1z"/></svg>
-          03 — Features
+          Features
         </div>
         <h2 class="sec-title">Move-in ready, <em>thoughtfully specified</em>.</h2>
       </div>
-      <p class="sec-lede reveal">A full remodel touched the kitchen, both baths, flooring, lighting, and finishes. The highlights are below; a complete inventory is available on request.</p>
+      <p class="sec-lede reveal">A full remodel touched the kitchen, both baths, flooring, lighting, and finishes.<br/>The highlights are below; a complete inventory is available on request.</p>
     </div>
 
     <div class="feat-grid reveal reveal-stagger">
@@ -509,8 +493,8 @@
       </div>
       <div class="feat">
         <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4zM4 9h16M4 14h16M4 19h16M9 4v16"/></svg></div>
-        <h4>Pergo and carpet</h4>
-        <p>Wide-plank Pergo flooring through the public rooms; plush new carpet in the bedrooms for warmth.</p>
+        <h4>Pergo, carpet, and tile</h4>
+        <p>Wide-plank Pergo through the public rooms, plush carpet in the bedrooms, and tile in the baths.</p>
       </div>
     </div>
   </div>
@@ -523,7 +507,7 @@
       <div class="reveal">
         <div class="sec-num">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          04 — Neighborhood
+          Neighborhood
         </div>
         <h2 class="sec-title">Bayview Heights — <em>the next chapter</em> of San Francisco.</h2>
       </div>
@@ -646,7 +630,7 @@
       <div>
         <div class="sec-num">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
-          05 — Schedule
+          Schedule
         </div>
         <h3>Come see it in person. By appointment only.</h3>
         <p>We're happy to send full disclosures, the 3D walkthrough, and a comparables report ahead of your visit. Private and twilight showings available on request.</p>
@@ -688,8 +672,7 @@
           <div class="logo">
             <span class="brand-mark">875 Meade</span>
           </div>
-          <div class="meta">San Francisco, CA 94124
-Listed by Redfin. </div>
+          <div class="meta"><strong>875 Meade Avenue · San Francisco, CA 94124</strong></div>
         </div>
         <div class="foot-links-col">
           <div class="h">Property</div>
@@ -784,6 +767,28 @@ Listed by Redfin. </div>
     window.addEventListener('scroll', onScroll, {passive:true});
     window.addEventListener('resize', onScroll, {passive:true});
     update();
+  })();
+
+  // Match neighborhood lede width to its headline width + 50px
+  (function(){
+    const specs = [
+      { sel:'#neighborhood', extra:50 }
+    ];
+    const pairs = specs.map(s => ({
+      title: document.querySelector(s.sel + ' .sec-title'),
+      lede:  document.querySelector(s.sel + ' .sec-lede'),
+      extra: s.extra
+    })).filter(p => p.title && p.lede);
+    if(!pairs.length) return;
+    function sync(){
+      pairs.forEach(p => {
+        p.lede.style.maxWidth = '';
+        p.lede.style.maxWidth = (p.title.offsetWidth + p.extra) + 'px';
+      });
+    }
+    window.addEventListener('resize', sync, {passive:true});
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(sync); }
+    sync();
   })();
 </script>
 
