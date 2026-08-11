@@ -1,39 +1,24 @@
-# 875 Meade Ave — Bayview Heights, San Francisco
+# 875 Meade Ave
 
-A dark-mode real estate listing website for **875 Meade Avenue, San Francisco, CA 94124**.
+Single-page listing site for a top-floor home in Bayview Heights, San Francisco.
 
-## About the property
+## Running it
 
-3 bed / 2 bath top-floor condo in Bayview Heights. Newly remodeled, 1,300 sq ft, panoramic views of the SF skyline, Bay Bridge, and East Bay hills. Built 1994. Listed at $875,000.
-
-## About this site
-
-Single-page static HTML site — no build step, no dependencies. Open `index.html` in a browser or serve with any static file server.
-
-**Sections:**
-- Hero with auto-rotating photo carousel
-- Overview and property spec sheet
-- Full photo gallery (16 images)
-- Features grid
-- Neighborhood section (Candlestick Point development, SF AI market)
-- Schedule / agent contact card
-
-**Design:** Sotheby's International Realty brand palette — navy `#002349`, warm cream `#f4f1ea`. Cormorant Garamond serif + Libre Franklin sans-serif.
-
-## File structure
+No build step. Open `index.html`, or serve the folder:
 
 ```
-index.html          — the website (single file)
-photos/             — optimized property photos used by the site
-uploads/            — original uploaded photos
-sf-home-website/
-  project/          — duplicate of root (design handoff bundle)
-  chats/            — original design brief and build transcript
+python3 -m http.server 8000
 ```
 
-## Running locally
+## Structure
 
-```bash
-python3 -m http.server 3000
-# then open http://localhost:3000
-```
+- `index.html` — the whole page (markup, styles, scripts inline)
+- `photos/` — optimized listing photography (~1750px long edge, JPEG)
+
+## Deploying
+
+Any static host works. For GitHub Pages: push to `main`, then Settings → Pages → deploy from branch root.
+
+## Before publishing
+
+Contact details in the schedule and footer sections are placeholders. Replace the phone number, email, agent name, and DRE number with the real listing team's information.
