@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://875meade.example/</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://875meade.example/photos/panoramic.jpg</image:loc>
+      <image:caption>Panoramic view of the San Francisco skyline from 875 Meade Ave</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://875meade.example/photos/living-room.jpg</image:loc>
+      <image:caption>Living room at 875 Meade Ave, Bayview Heights</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://875meade.example/photos/kitchen.jpg</image:loc>
+      <image:caption>Skylit galley kitchen at 875 Meade Ave</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://875meade.example/photos/backyard.jpg</image:loc>
+      <image:caption>Private deck and fenced yard at 875 Meade Ave</image:caption>
+    </image:image>
+  </url>
+</urlset>
