@@ -1,6 +1,6 @@
 # 875 Meade Ave
 
-Single-page listing site for a top-floor home in Bayview Heights, San Francisco. 3 bed, 2 bath, 1,183 sq ft, offered at $900,000.
+Single-page listing site for a top-floor home in Bayview Heights, San Francisco. 3 bed, 2 bath, 1,200 sq ft, offered at $900,000.
 
 ## Running it
 
