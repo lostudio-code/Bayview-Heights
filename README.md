@@ -33,7 +33,7 @@ Any static host works. For GitHub Pages: push to `main`, then Settings → Pages
 
 The page carries a descriptive title and meta description, canonical and Open Graph/Twitter tags, geo meta, and JSON-LD structured data (`SingleFamilyResidence` + `RealEstateListing` with price, agent, and coordinates).
 
-**One find-and-replace before launch:** every absolute URL uses the placeholder domain `875meade.example`. Swap it for the real domain in `index.html` (canonical, `og:url`, `og:image`, `twitter:image`, and the JSON-LD block), `robots.txt`, and `sitemap.xml`. Absolute image URLs are required for link previews to render.
+**One find-and-replace before launch:** every absolute URL uses the placeholder domain `bayview-heights.vercel.app`. Swap it for the real domain in `index.html` (canonical, `og:url`, `og:image`, `twitter:image`, and the JSON-LD block), `robots.txt`, and `sitemap.xml`. Absolute image URLs are required for link previews to render.
 
 After launch, submit `sitemap.xml` in Google Search Console and validate the structured data with the Rich Results Test.
 
