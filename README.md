@@ -35,6 +35,10 @@ Any static host works — there is nothing to build.
 
 **GitHub Pages:** `.github/workflows/pages.yml` deploys on push to `main` — enable it under Settings → Pages → Source: GitHub Actions. Or skip the workflow and use Settings → Pages → deploy from branch, `main` / root.
 
+## Photos
+
+Every photo ships at two widths: `photos/<name>.jpg` (1600px, used by the lightbox) and `photos/sm/<name>.jpg` (900px, used by the page). `photos/xs/` holds the five 640px hero thumbnails. All are JPEG at quality 0.82. Raw originals live in `uploads/`, which is gitignored.
+
 ## Devices
 
 The layout is fluid with breakpoints at 1080, 980, 880, 680, 560 and 420px, plus a landscape-phone case for short viewports. Hero slides ship `srcset` (900px on phones and tablets, 1600px on desktop) and the LCP image is preloaded with a matching `imagesrcset`. Safe-area insets keep content clear of notches; hover-only effects are disabled on touch devices; `prefers-reduced-motion` turns off the Ken Burns pan and reveal transitions.

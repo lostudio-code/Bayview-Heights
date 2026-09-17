@@ -140,7 +140,6 @@
   .hero-photo img[src="photos/floor-plan.jpg"]{object-fit:contain;background:#fff}
   .gal figure img[src="photos/floor-plan.jpg"]{object-fit:contain;background:#fff}
   .hero-photo img.is-active{opacity:1}
-  .hero-photo img[src="photos/backyard.jpg"]{object-position:center top}
   .hero-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,rgba(0,0,0,0) 55%,rgba(0,10,25,0.30) 100%),linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,0.48) 100%);pointer-events:none}
   @media(prefers-reduced-motion:no-preference){.hero-photo img.is-active{animation:kenburns 26s var(--ease) forwards}}
   @keyframes kenburns{from{transform:scale(1.001)}to{transform:scale(1.06)}}
@@ -301,6 +300,23 @@
   .row-actions a.solid{background:var(--accent);color:#fff}
   .row-actions a.solid:hover{background:var(--sir-blue-2);border-color:var(--sir-blue-2)}
 
+  /* ===== TOUR ===== */
+  #tour{padding-top:48px}
+  .tour-frame{position:relative;border:1px solid var(--line);background:#0a1220;aspect-ratio:16/9;overflow:hidden}
+  .tour-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .tour-facade{position:absolute;inset:0;width:100%;padding:0;border:0;cursor:pointer;background:none;display:block}
+  .tour-facade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.62) saturate(.9);transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .5s}
+  .tour-facade:hover img{transform:scale(1.04);filter:brightness(.55)}
+  .tour-badge{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;color:#fff;text-align:center;padding:24px}
+  .tour-play{width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(6px);display:grid;place-items:center;transition:background .35s,transform .35s}
+  .tour-facade:hover .tour-play{background:rgba(255,255,255,.26);transform:scale(1.06)}
+  .tour-play svg{margin-left:3px}
+  .tour-label{font-family:'Libre Franklin',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+  .tour-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.6vw,32px);line-height:1.15;font-weight:700;margin:0}
+  .tour-note{margin:14px 0 0;color:var(--ink-dim);font-family:'Libre Franklin',sans-serif;font-size:12.5px;line-height:1.6}
+  .tour-note a{color:var(--accent)}
+  @media(max-width:680px){.tour-frame{aspect-ratio:4/5}.tour-play{width:60px;height:60px}}
+
   /* micro-map */
   .micro-map{margin-top:28px;border:1px solid var(--line);overflow:hidden;aspect-ratio:16/9;background:#fff;position:relative}
   .micro-map{display:block;text-decoration:none}
@@ -443,6 +459,7 @@
     </a>
     <div class="nav-links">
       <a href="#overview">Overview</a>
+      <a href="#tour">3D Tour</a>
       <a href="#gallery">Gallery</a>
       <a href="#features">Features</a>
       <a href="#upgrades">Upgrades</a>
@@ -461,6 +478,7 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#overview">Overview <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+    <a href="#tour">3D Tour <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
     <a href="#gallery">Gallery <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
     <a href="#features">Features <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
     <a href="#upgrades">Upgrades <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
@@ -478,7 +496,7 @@
   <div class="hero-grid">
     <div class="hero-copy">
       <div class="reveal">
-        <div class="eyebrow"><span class="pulse"></span>Coming soon</div>
+        <div class="eyebrow"><span class="pulse"></span>Just listed</div>
         <h1 class="title">Panoramic views from the top of Bayview Heights</h1>
         <p class="addr">A newly remodeled 3 bedroom, 2 bath contemporary residence with unobstructed sweeping views of the San Francisco skyline. This home features 5 skylights, new appliances, parking, a large backyard, and a huge private storage area not included in the square footage.</p>
       </div>
@@ -514,7 +532,7 @@
     <div class="reveal">
       <div class="hero-photo" id="heroPhoto">
         <img class="is-active" src="photos/panoramic.jpg" srcset="photos/sm/panoramic.jpg 900w, photos/panoramic.jpg 1600w" sizes="(max-width:1080px) 100vw, 56vw" alt="Panoramic San Francisco view" fetchpriority="high" data-cap="Panoramic San Francisco view" />
-        <img loading="lazy" decoding="async" src="photos/kitchen-2.jpg" srcset="photos/sm/kitchen-2.jpg 900w, photos/kitchen-2.jpg 1600w" sizes="(max-width:1080px) 100vw, 56vw" alt="Dining area with city views" data-cap="Dining area with amazing views" />
+        <img loading="lazy" decoding="async" src="photos/dining.jpg" srcset="photos/sm/dining.jpg 900w, photos/dining.jpg 1600w" sizes="(max-width:1080px) 100vw, 56vw" alt="Dining area with city views" data-cap="Dining area with amazing views" />
         <img loading="lazy" decoding="async" src="photos/kitchen.jpg" srcset="photos/sm/kitchen.jpg 900w, photos/kitchen.jpg 1600w" sizes="(max-width:1080px) 100vw, 56vw" alt="Kitchen with stainless appliances" data-cap="Skylit galley kitchen" />
         <img loading="lazy" decoding="async" src="photos/master-bedroom.jpg" srcset="photos/sm/master-bedroom.jpg 900w, photos/master-bedroom.jpg 1600w" sizes="(max-width:1080px) 100vw, 56vw" alt="Master bedroom" data-cap="Primary suite" />
         <img loading="lazy" decoding="async" src="photos/backyard.jpg" srcset="photos/sm/backyard.jpg 900w, photos/backyard.jpg 1600w" sizes="(max-width:1080px) 100vw, 56vw" alt="Backyard and deck" data-cap="Private deck and yard" />
@@ -525,7 +543,7 @@
       </div>
       <div class="photo-thumbs" id="heroThumbs">
         <button class="thumb is-active" data-i="0"><img src="photos/xs/panoramic.jpg" decoding="async" alt=""/></button>
-        <button class="thumb" data-i="1"><img src="photos/xs/kitchen-2.jpg" decoding="async" alt=""/></button>
+        <button class="thumb" data-i="1"><img src="photos/xs/dining.jpg" decoding="async" alt=""/></button>
         <button class="thumb" data-i="2"><img src="photos/xs/kitchen.jpg" decoding="async" alt=""/></button>
         <button class="thumb" data-i="3"><img src="photos/xs/master-bedroom.jpg" decoding="async" alt=""/></button>
         <button class="thumb" data-i="4"><img src="photos/xs/backyard.jpg" decoding="async" alt=""/></button>
@@ -549,6 +567,25 @@
     <span>One block to Muni T-Third</span><span class="dot"></span>
   </div>
 </div>
+
+<!-- TOUR -->
+<section id="tour">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="tour-frame" id="tourFrame">
+        <button class="tour-facade" id="tourPlay" type="button" aria-label="Load the interactive 3D walkthrough of 875 Meade Ave">
+          <img src="photos/sm/panoramic.jpg" alt="" loading="lazy" decoding="async" />
+          <span class="tour-badge">
+            <span class="tour-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="tour-label">Matterport 3D tour</span>
+            <span class="tour-sub">Walk the whole home, room by room</span>
+          </span>
+        </button>
+      </div>
+      <p class="tour-note">Loads on tap to keep the page fast. <a href="https://my.matterport.com/show/?m=M7NBfnibMYu" target="_blank" rel="noopener">Open the tour in a new tab</a></p>
+    </div>
+  </div>
+</section>
 
 <!-- OVERVIEW -->
 <section id="overview">
@@ -607,27 +644,43 @@
     </div>
 
     <div class="gal reveal">
-      <figure><img src="photos/sm/panoramic.jpg" data-full="photos/panoramic.jpg" decoding="async" alt="Panoramic San Francisco view" loading="lazy"/><figcaption>The view by day</figcaption></figure>
-      <figure><img src="photos/sm/kitchen-2.jpg" data-full="photos/kitchen-2.jpg" decoding="async" alt="Dining area" loading="lazy"/><figcaption>Dining area</figcaption></figure>
+      <figure><img src="photos/sm/panoramic.jpg" data-full="photos/panoramic.jpg" decoding="async" alt="Panoramic view over San Francisco" loading="lazy"/><figcaption>The view from above</figcaption></figure>
+      <figure><img src="photos/sm/dining.jpg" data-full="photos/dining.jpg" decoding="async" alt="Living and dining area open to the kitchen" loading="lazy"/><figcaption>Living and dining, open to the kitchen</figcaption></figure>
+      <figure><img src="photos/sm/living-room.jpg" data-full="photos/living-room.jpg" decoding="async" alt="Living room with wall-mounted TV and city view" loading="lazy"/><figcaption>Living room</figcaption></figure>
+      <figure><img src="photos/sm/living-room-2.jpg" data-full="photos/living-room-2.jpg" decoding="async" alt="Living room sectional facing floor-to-ceiling windows" loading="lazy"/><figcaption>Living room, sectional and skyline</figcaption></figure>
       <figure><img src="photos/sm/living-room-3.jpg" data-full="photos/living-room-3.jpg" decoding="async" alt="Living room sitting area with city view" loading="lazy"/><figcaption>Sitting area and city view</figcaption></figure>
-      <figure><img src="photos/sm/living-room-2.jpg" data-full="photos/living-room-2.jpg" decoding="async" alt="Living area" loading="lazy"/><figcaption>Living area</figcaption></figure>
-      <figure><img src="photos/sm/living-room.jpg" data-full="photos/living-room.jpg" decoding="async" alt="Living room" loading="lazy"/><figcaption>Living room</figcaption></figure>
-      <figure><img src="photos/sm/kitchen.jpg" data-full="photos/kitchen.jpg" decoding="async" alt="Kitchen" loading="lazy"/><figcaption>Kitchen</figcaption></figure>
-      <figure><img src="photos/sm/master-bedroom.jpg" data-full="photos/master-bedroom.jpg" decoding="async" alt="Master bedroom" loading="lazy"/><figcaption>Primary suite</figcaption></figure>
-      <figure><img src="photos/sm/master-bedroom-2.jpg" data-full="photos/master-bedroom-2.jpg" decoding="async" alt="Master bedroom bay windows" loading="lazy"/><figcaption>Primary suite bay windows</figcaption></figure>
-      <figure><img src="photos/sm/master-bath.jpg" data-full="photos/master-bath.jpg" decoding="async" alt="Master bath" loading="lazy"/><figcaption>Primary bath</figcaption></figure>
-      <figure><img src="photos/sm/master-bath-2.jpg" data-full="photos/master-bath-2.jpg" decoding="async" alt="Master bath vanity" loading="lazy"/><figcaption>Primary bath vanity</figcaption></figure>
-      <figure><img src="photos/sm/guest-room.jpg" data-full="photos/guest-room.jpg" decoding="async" alt="Guest bedroom" loading="lazy"/><figcaption>Bedroom two</figcaption></figure>
-      <figure><img src="photos/sm/guest-room-2.jpg" data-full="photos/guest-room-2.jpg" decoding="async" alt="Guest bedroom alternate angle" loading="lazy"/><figcaption>Bedroom two, another angle</figcaption></figure>
-      <figure><img src="photos/sm/office.jpg" data-full="photos/office.jpg" decoding="async" alt="Office or third bedroom" loading="lazy"/><figcaption>Bedroom three · Office</figcaption></figure>
-      <figure><img src="photos/sm/office-2.jpg" data-full="photos/office-2.jpg" decoding="async" alt="Office alternate angle" loading="lazy"/><figcaption>Office skylight</figcaption></figure>
-      <figure><img src="photos/sm/guest-bath.jpg" data-full="photos/guest-bath.jpg" decoding="async" alt="Guest bath" loading="lazy"/><figcaption>Guest bath</figcaption></figure>
-      <figure><img src="photos/sm/guest-bath-2.jpg" data-full="photos/guest-bath-2.jpg" decoding="async" alt="Guest bath alternate angle" loading="lazy"/><figcaption>Guest bath skylight</figcaption></figure>
-      <figure><img src="photos/sm/backyard.jpg" data-full="photos/backyard.jpg" decoding="async" alt="Backyard" loading="lazy"/><figcaption>Deck and yard</figcaption></figure>
-      <figure><img src="photos/sm/night-1.jpg" data-full="photos/night-1.jpg" decoding="async" alt="Night view" loading="lazy"/><figcaption>The view at night</figcaption></figure>
-      <figure><img src="photos/sm/garage.jpg" data-full="photos/garage.jpg" decoding="async" alt="Garage" loading="lazy"/><figcaption>Garage</figcaption></figure>
-      <figure><img src="photos/sm/storage.jpg" data-full="photos/storage.jpg" decoding="async" alt="Storage room" loading="lazy"/><figcaption>Storage room</figcaption></figure>
-      <figure><img src="photos/floor-plan.jpg" alt="Floor plan" loading="lazy"/><figcaption>Floor plan</figcaption></figure>
+      <figure><img src="photos/sm/living-room-4.jpg" data-full="photos/living-room-4.jpg" decoding="async" alt="Living room with French doors opening to the office" loading="lazy"/><figcaption>French doors to the office</figcaption></figure>
+      <figure><img src="photos/sm/view-window.jpg" data-full="photos/view-window.jpg" decoding="async" alt="Living room window looking toward downtown San Francisco" loading="lazy"/><figcaption>The view from the living room</figcaption></figure>
+      <figure><img src="photos/sm/dining-2.jpg" data-full="photos/dining-2.jpg" decoding="async" alt="Dining table beside the view windows" loading="lazy"/><figcaption>Dining area</figcaption></figure>
+      <figure><img src="photos/sm/dining-nook.jpg" data-full="photos/dining-nook.jpg" decoding="async" alt="Dining area with balcony window and kitchen beyond" loading="lazy"/><figcaption>Dining area and balcony window</figcaption></figure>
+      <figure><img src="photos/sm/hall.jpg" data-full="photos/hall.jpg" decoding="async" alt="Hallway leading from the living area to the bedrooms" loading="lazy"/><figcaption>Hallway to the bedrooms</figcaption></figure>
+      <figure><img src="photos/sm/kitchen.jpg" data-full="photos/kitchen.jpg" decoding="async" alt="Galley kitchen with granite counters and skylight" loading="lazy"/><figcaption>Skylit galley kitchen</figcaption></figure>
+      <figure><img src="photos/sm/kitchen-2.jpg" data-full="photos/kitchen-2.jpg" decoding="async" alt="Kitchen with dining nook and city view" loading="lazy"/><figcaption>Kitchen and breakfast nook</figcaption></figure>
+      <figure><img src="photos/sm/kitchen-3.jpg" data-full="photos/kitchen-3.jpg" decoding="async" alt="Kitchen sink and counters open to the living room" loading="lazy"/><figcaption>Kitchen, open to the living room</figcaption></figure>
+      <figure><img src="photos/sm/master-bedroom.jpg" data-full="photos/master-bedroom.jpg" decoding="async" alt="Primary bedroom with bay windows" loading="lazy"/><figcaption>Primary suite</figcaption></figure>
+      <figure><img src="photos/sm/master-bedroom-2.jpg" data-full="photos/master-bedroom-2.jpg" decoding="async" alt="Primary bedroom with ensuite bath beyond" loading="lazy"/><figcaption>Primary suite and ensuite bath</figcaption></figure>
+      <figure><img src="photos/sm/master-bedroom-3.jpg" data-full="photos/master-bedroom-3.jpg" decoding="async" alt="Primary bedroom seen from the hallway" loading="lazy"/><figcaption>Primary suite from the hall</figcaption></figure>
+      <figure><img src="photos/sm/master-closet.jpg" data-full="photos/master-closet.jpg" decoding="async" alt="Mirrored closets outside the primary bedroom" loading="lazy"/><figcaption>Primary closets</figcaption></figure>
+      <figure><img src="photos/sm/master-bath.jpg" data-full="photos/master-bath.jpg" decoding="async" alt="Primary bath with tub and shower" loading="lazy"/><figcaption>Primary bath</figcaption></figure>
+      <figure><img src="photos/sm/master-bath-2.jpg" data-full="photos/master-bath-2.jpg" decoding="async" alt="Primary bath vanity and mirror" loading="lazy"/><figcaption>Primary bath vanity</figcaption></figure>
+      <figure><img src="photos/sm/guest-room.jpg" data-full="photos/guest-room.jpg" decoding="async" alt="Second bedroom with queen bed" loading="lazy"/><figcaption>Bedroom two</figcaption></figure>
+      <figure><img src="photos/sm/guest-room-2.jpg" data-full="photos/guest-room-2.jpg" decoding="async" alt="Second bedroom with mirrored closet" loading="lazy"/><figcaption>Bedroom two, another angle</figcaption></figure>
+      <figure><img src="photos/sm/office.jpg" data-full="photos/office.jpg" decoding="async" alt="Third bedroom used as an office, with skylight" loading="lazy"/><figcaption>Bedroom three · Office</figcaption></figure>
+      <figure><img src="photos/sm/office-2.jpg" data-full="photos/office-2.jpg" decoding="async" alt="Office with French doors to the living room" loading="lazy"/><figcaption>Office, open to the living room</figcaption></figure>
+      <figure><img src="photos/sm/guest-bath.jpg" data-full="photos/guest-bath.jpg" decoding="async" alt="Guest bath with tub, shower, and skylight" loading="lazy"/><figcaption>Guest bath</figcaption></figure>
+      <figure><img src="photos/sm/backyard.jpg" data-full="photos/backyard.jpg" decoding="async" alt="Garden with patio table and planted beds" loading="lazy"/><figcaption>Garden and patio</figcaption></figure>
+      <figure><img src="photos/sm/backyard-2.jpg" data-full="photos/backyard-2.jpg" decoding="async" alt="Seating area under the pergola" loading="lazy"/><figcaption>Pergola seating</figcaption></figure>
+      <figure><img src="photos/sm/backyard-3.jpg" data-full="photos/backyard-3.jpg" decoding="async" alt="Yard and pergola looking back at the building" loading="lazy"/><figcaption>Yard and pergola</figcaption></figure>
+      <figure><img src="photos/sm/street-view.jpg" data-full="photos/street-view.jpg" decoding="async" alt="View up the street toward downtown San Francisco" loading="lazy"/><figcaption>Looking toward downtown</figcaption></figure>
+      <figure><img src="photos/sm/facade.jpg" data-full="photos/facade.jpg" decoding="async" alt="Front facade of the building on Meade Ave" loading="lazy"/><figcaption>The building</figcaption></figure>
+      <figure><img src="photos/sm/entry.jpg" data-full="photos/entry.jpg" decoding="async" alt="Entry hall at street level" loading="lazy"/><figcaption>Entry</figcaption></figure>
+      <figure><img src="photos/sm/stairwell.jpg" data-full="photos/stairwell.jpg" decoding="async" alt="Carpeted stairwell to the top floor" loading="lazy"/><figcaption>Stairs to the top floor</figcaption></figure>
+      <figure><img src="photos/sm/garage.jpg" data-full="photos/garage.jpg" decoding="async" alt="Attached one-car garage" loading="lazy"/><figcaption>Attached garage</figcaption></figure>
+      <figure><img src="photos/sm/storage.jpg" data-full="photos/storage.jpg" decoding="async" alt="Storage room with cabinets" loading="lazy"/><figcaption>Storage room</figcaption></figure>
+      <figure><img src="photos/sm/laundry.jpg" data-full="photos/laundry.jpg" decoding="async" alt="Laundry room with washers and dryers" loading="lazy"/><figcaption>Laundry</figcaption></figure>
+      <figure><img src="photos/sm/aerial-neighborhood.jpg" data-full="photos/aerial-neighborhood.jpg" decoding="async" alt="Aerial view of the Bayview Heights blocks and hill" loading="lazy"/><figcaption>Bayview Heights</figcaption></figure>
+      <figure><img src="photos/sm/aerial-wide.jpg" data-full="photos/aerial-wide.jpg" decoding="async" alt="Aerial view over the neighborhood toward the bay" loading="lazy"/><figcaption>The neighborhood from above</figcaption></figure>
+      <figure><img src="photos/sm/floor-plan.jpg" data-full="photos/floor-plan.jpg" decoding="async" alt="Floor plan with room dimensions" loading="lazy"/><figcaption>Floor plan</figcaption></figure>
     </div>
   </div>
 </section>
@@ -740,7 +793,7 @@
 
     <div class="nb-wrap reveal">
       <div class="nb-hero">
-        <img id="nbParallax" src="photos/panoramic.jpg" srcset="photos/sm/panoramic.jpg 900w, photos/panoramic.jpg 1600w" sizes="(max-width:1080px) 100vw, 56vw" alt="View of downtown San Francisco from Bayview Heights" loading="lazy" decoding="async" data-parallax="0.12" />
+        <img id="nbParallax" src="photos/downtown-view.jpg" srcset="photos/sm/downtown-view.jpg 900w, photos/downtown-view.jpg 1448w" sizes="(max-width:1080px) 100vw, 56vw" alt="View of downtown San Francisco from Bayview Heights" loading="lazy" decoding="async" data-parallax="0.12" />
         <div class="cap">
           <div>
             <h3>From your front door to downtown in fifteen minutes</h3>
@@ -870,6 +923,7 @@
         <div class="foot-links-col">
           <div class="h">Property</div>
           <a href="#overview">Overview</a>
+      <a href="#tour">3D Tour</a>
           <a href="#gallery">Gallery</a>
           <a href="#features">Features</a>
           <a href="#schedule">Schedule a showing</a>
@@ -885,7 +939,7 @@
       <div class="foot-fine">
         © 2026. All rights reserved.
         <div class="disclaimer">All information deemed reliable but not guaranteed. Buyer to verify all details independently. Equal Housing Opportunity.</div>
-        <div class="disclaimer">Photographs shown have been digitally enhanced and optimized, including with the use of artificial intelligence tools, for color, lighting, and clarity. Images are representations only and may not depict the property's exact current condition, furnishings, or surroundings. No representation or warranty is made as to their accuracy. Prospective buyers should inspect the property in person and rely on their own investigation.</div>
+        <div class="disclaimer">Photographs may have been digitally enhanced and optimized, including with the use of artificial intelligence tools, for color, lighting, and clarity. Images are representations only and may not depict the property's exact current condition, furnishings, or surroundings. No representation or warranty is made as to their accuracy. Prospective buyers should inspect the property in person and rely on their own investigation.</div>
       </div>
     </div>
   </footer>
@@ -1061,6 +1115,19 @@
     const warm=()=>{const i=slides.findIndex(s=>s.classList.contains('is-active'));[1,-1].forEach(d=>{const n=slides[(i+d+slides.length)%slides.length];if(n)n.loading='eager'})};
     if(slides.length){warm();document.getElementById('heroThumbs')?.addEventListener('click',()=>setTimeout(warm,50))}
   })();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('tourPlay');if(!b)return;
+  b.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.src='https://my.matterport.com/show/?m=M7NBfnibMYu&play=1';
+    f.title='Matterport 3D walkthrough of 875 Meade Ave';
+    f.allow='xr-spatial-tracking; fullscreen; accelerometer; gyroscope';
+    f.allowFullscreen=true;f.loading='eager';
+    document.getElementById('tourFrame').replaceChildren(f);
+  },{once:true});
+})();
 </script>
 </body>
 </html>
